@@ -41,7 +41,7 @@ struct DetailView: View {
                 .navigationTitle("投稿詳細")
                 .navigationBarTitleDisplayMode(.inline)
             }
-            .animation(.easeInOut, value: showImageDetail)
+
         }
         .animation(.easeInOut, value: showImageDetail)
         .animation(.easeInOut, value: transform)
@@ -51,9 +51,7 @@ struct DetailView: View {
             bottomInsets = newValue.bottom
         })
         .onChange(of: showImageDetail, perform: { _ in
-            withAnimation(.easeInOut(duration: 0.2)) {
-                transform = .identity
-            }
+            transform = .identity
         })
         .fullScreenCover(isPresented: $showImageDetail) {
             ImageDetailView(
